@@ -14,7 +14,8 @@
       <button class="py-2 px-4 flex flex-col items-center hover:bg-gray-200 rounded">
         <span class="material-icons mb-1 text-gray-500">list</span> 事项
       </button>
-      <button class="py-2 px-4 flex flex-col items-center hover:bg-gray-200 rounded">
+      <button class="py-2 px-4 flex flex-col items-center hover:bg-gray-200 rounded"
+       @click="showDrawer=true">
         <span class="material-icons mb-1 text-gray-500">code</span> 代码
       </button>
       <button class="py-2 px-4 flex flex-col items-center hover:bg-gray-200 rounded">
@@ -55,6 +56,7 @@
         </div>
       </div>
       <component :is="com" class="mt-4"></component>
+      <LayouTed v-if="showDrawer" @close="showDrawer = false"></LayouTed>
     </div>
   </div>
 </template>
@@ -65,7 +67,8 @@ import AboutView from '@/views/AboutView.vue'
 import HomeView from '@/views/HomeView.vue'
 import WwwCom from '@/views/WwwCom.vue'
 import RepoPip from '@/views/Repone/RepoPip.vue';
-
+import LayouTed from '../layout/LayouTed.vue';
+let showDrawer = ref(false);
 let com = ref(AboutView)
 let about = () => {
   com.value = AboutView
