@@ -14,13 +14,13 @@
         <div class="flex flex-col space-y-4">
           <input
             type="text"
-            v-model="username"
+            v-model="user.username"
             placeholder="账号"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           >
           <input
             type="password"
-            v-model="password"
+            v-model="user.password"
             placeholder="密码"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           >
@@ -55,9 +55,12 @@ export default {
     const password = ref('');
     const agree = ref(false);
     const loading = ref(false);
-
+    const user = {
+      username: '189218005@qq.com',
+      password: '5ifmhu8693',
+    };
     const login = async () => {
-      if (!username.value || !password.value) {
+      if (!user.username.value || !user.password.value) {
         alert("请填写完整的账号和密码");
         return;
       }
