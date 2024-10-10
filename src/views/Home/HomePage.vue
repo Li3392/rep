@@ -14,13 +14,13 @@
         <div class="flex flex-col space-y-4">
           <input
             type="text"
-            v-model="user.username"
+            v-model="username"
             placeholder="账号"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           >
           <input
             type="password"
-            v-model="user.password"
+            v-model="password"
             placeholder="密码"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           >
@@ -51,16 +51,13 @@ import { useRouter } from 'vue-router';
 export default {
   setup() {
     const router = useRouter();
-    const username = ref('');
-    const password = ref('');
+    const username = ref('189218005@qq.com');
+    const password = ref('5ifmhu8693');
     const agree = ref(false);
     const loading = ref(false);
-    const user = {
-      username: '189218005@qq.com',
-      password: '5ifmhu8693',
-    };
+    
     const login = async () => {
-      if (!user.username.value || !user.password.value) {
+      if (!username.value || !password.value) {
         alert("请填写完整的账号和密码");
         return;
       }
